@@ -113,7 +113,9 @@ del_deb_over(){
 	update-grub
 	addsysctl
 	echo -e "${Tip} 重启VPS后，请重新运行脚本查看BBR是否加载成功，运行命令： ${Green_background_prefix} bash ${file}/bbr.sh status ${Font_color_suffix}"
-	stty erase '^H' && read -p "需要重启VPS后，才能开启BBR，是否现在重启 ? [Y/n] :" yn
+#	stty erase '^H' && read -p "需要重启VPS后，才能开启BBR，是否现在重启 ? [Y/n] :" yn
+echo reboot..
+yn=y
 	[[ -z "${yn}" ]] && yn="y"
 	if [[ $yn == [Yy] ]]; then
 		echo -e "${Info} VPS 重启中..."
